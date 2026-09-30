@@ -1,0 +1,39 @@
+class AIModel:
+    def __init__(self, name):
+        self.name = name
+
+    def generate_code(self, prompt):
+        return f"{self.name} is generating code for: {prompt}"
+
+
+class CodeModule:
+    def __init__(self):
+        self.models = {
+            "GPT": AIModel("GPT"),
+            "Claude": AIModel("Claude"),
+            "Gemini": AIModel("Gemini")
+        }
+
+    def select_model(self, model_name):
+        if model_name in self.models:
+            return self.models[model_name]
+        return None
+
+    def generate(self, model_name, prompt):
+        model = self.select_model(model_name)
+
+        if model is None:
+            return "Invalid AI model selected."
+
+        return model.generate_code(prompt)
+
+
+# Module implementation
+module = CodeModule()
+
+model = input("Select AI Model (GPT/Claude/Gemini): ")
+prompt = input("Enter your coding requirement: ")
+
+result = module.generate(model, prompt)
+print("\nOutput:")
+print(result)
