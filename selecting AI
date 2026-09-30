@@ -1,0 +1,11 @@
+Select AI Models
+
+[ Select AI Models ▼ ]
+
+<label for="ai-model">Select AI Models</label>
+<select id="ai-model">
+  <option>Select a model</option>
+  <option>GPT</option>
+  <option>Claude</option>
+  <option>Gemini</option>
+</select>
